@@ -1,58 +1,51 @@
+# Data ingestion from RAPID API to AWS S3 using AWS Lambda
 
-# Welcome to your CDK Python project!
+This project contains the AWS CDK kit implemented for deplpying an AWS Lambda function that can extract data from API and load it to a 
+AWS S3 bucket. The Lambda function is integrated with AWS Eventbridge to manage scheculing and is also integrated with AWS SNS to send 
+error notifications to the SNS topic.
 
-This is a blank project for CDK development with Python.
+The cdk.json file tells the CDK Toolkit how to execute your app.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+# Deployment instructions
 
-This project is set up like a standard Python project.  The initialization
-process also creates a virtualenv within this project, stored under the `.venv`
-directory.  To create the virtualenv it assumes that there is a `python3`
-(or `python` for Windows) executable in your path with access to the `venv`
-package. If for any reason the automatic creation of the virtualenv fails,
-you can create the virtualenv manually.
+1. Create a new directory, navigate to that directory in a terminal and clone the GitHub repository:
+    ```git clone ```
 
-To manually create a virtualenv on MacOS and Linux:
 
-```
-$ python3 -m venv .venv
-```
+2. create a virtualenv on MacOS and Linux:
+    
+    ```python3 -m venv .venv```
 
-After the init process completes and the virtualenv is created, you can use the following
-step to activate your virtualenv.
 
-```
-$ source .venv/bin/activate
-```
+3. After the init process completes and the virtualenv is created, you can use the following step to activate your virtualenv.
+    
+    ```source .venv/bin/activate```
 
-If you are a Windows platform, you would activate the virtualenv like this:
+    On Windows machine you can use
+        
+    ```.venv\Scripts\activate.bat```
 
-```
-% .venv\Scripts\activate.bat
-```
+4. Once the virtualenv is activated, you can install the required dependencies.
+    
+    ```pip install -r requirements.txt```
 
-Once the virtualenv is activated, you can install the required dependencies.
+5. To setup Rapid API
 
-```
-$ pip install -r requirements.txt
-```
+    ```Vist link *https://rapidapi.com/theoddsapi/api/live-sports-odds/* subscribe with your email ID to generate the API Access Key. Once the API key is generated add it to AWS Secrets Manager with the secrets name *X-RapidAPI-Key*```
 
-At this point you can now synthesize the CloudFormation template for this code.
 
-```
-$ cdk synth
-```
+6. To get SNS Error Notifications
 
-To add additional dependencies, for example other CDK libraries, just add
-them to your `setup.py` file and rerun the `pip install -r requirements.txt`
-command.
+    You can subscribe to SNS topic *SportsLambda-Response* to receive SNS notifications
 
-## Useful commands
+7. From the command line, use AWS CDK to synthesize an AWS CloudFormation
 
- * `cdk ls`          list all stacks in the app
- * `cdk synth`       emits the synthesized CloudFormation template
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk docs`        open CDK documentation
+    ```cdk synth```
 
-Enjoy!
+8. Expected results
+
+    Should install stacks as the image below
+
+    ![cdk stacks](Initial_cdk_deploy_output)
+
+

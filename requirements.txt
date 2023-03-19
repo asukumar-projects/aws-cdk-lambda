@@ -1,2 +1,5 @@
 aws-cdk.core
 aws-cdk.aws_lambda
+aws-cdk.aws_s3
+aws-cdk.aws_events_targets
+aws-cdk.aws_logs_destinations

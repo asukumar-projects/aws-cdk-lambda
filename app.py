@@ -5,7 +5,6 @@ from aws_cdk import core
 
 from infrastructure.infrastructure_stack import InfrastructureStack
 
-
 app = core.App()
 InfrastructureStack(app, "InfrastructureStack",
     # If you don't specify 'env', this stack will be environment-agnostic.
